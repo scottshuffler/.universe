@@ -78,6 +78,7 @@
     }:
     let
       mkSystem = import ./lib/mksystem.nix { inherit inputs; };
+      mkHome = import ./lib/mkhome.nix { inherit inputs; };
       mkChecks = import ./lib/mkchecks.nix { inherit inputs; };
     in
     {
@@ -94,6 +95,9 @@
         expat = mkSystem "expat";
         slugger = mkSystem "slugger";
         snake = mkSystem "snake";
+      };
+      homeConfigurations = {
+        vermillion = mkHome "vermillion";
       };
 
       checks = mkChecks self.darwinConfigurations self.nixosConfigurations;

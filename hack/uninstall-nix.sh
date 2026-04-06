@@ -6,13 +6,13 @@
 date=$(date '+%Y-%m-%d-%H:%M')
 # back up rc files and create empty versions
 sudo mv /etc/zshrc /etc/zshrc-bkp-"$date"
-echo "backed up /etc/zshrc as /etc/zshrc-bkp-"$date""
+echo "backed up /etc/zshrc as /etc/zshrc-bkp-$date"
 
 sudo mv /etc/bashrc /etc/bashrc-bkp-"$date"
-echo "backed up /etc/bashrc as /etc/bashrc-bkp-"$date""
+echo "backed up /etc/bashrc as /etc/bashrc-bkp-$date"
 
 sudo mv /etc/bash.bashrc /etc/bash.bashrc-bkp-"$date"
-echo "backed up /etc/bash.bashrc  as /etc/bash.bashrc -bkp-"$date""
+echo "backed up /etc/bash.bashrc  as /etc/bash.bashrc -bkp-$date"
 
 sudo touch /etc/zshrc /etc/bashrc /etc/bash.bashrc
 
