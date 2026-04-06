@@ -39,19 +39,9 @@ inputs.home-manager.lib.homeManagerConfiguration {
   modules = [
     hostConfig.home or { }
     hostConfig.homie.home or { }
-    ({ pkgs, ... }: {
+    {
       home.username = user;
       home.homeDirectory = "/home/${user}";
-
-      home.sessionVariables.UNIVERSE_PATH = "$HOME/.universe";
-
-      home.packages = [
-        (pkgs.writeShellScriptBin "uswitch" ''
-          NIX_PATH="home-manager=${inputs.home-manager}" \
-            ${inputs.home-manager.packages.${currentSystem}.home-manager}/bin/home-manager \
-            switch --flake ''${UNIVERSE_PATH:-$HOME/.universe}#${hostname} "$@"
-        '')
-      ];
-    })
+    }
   ];
 }
